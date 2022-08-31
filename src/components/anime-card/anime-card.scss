@@ -1,0 +1,101 @@
+.fav-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  height: 25px;
+  width: 25px;
+}
+
+.fav-icon:hover {
+  height: 30px;
+  width: 30px;
+}
+
+.anime-card {
+  overflow: hidden;
+}
+
+.anime-card:hover {
+  transform: scale(1.02);
+  transition: ease-in-out 0.3s;
+  border-color: #2a284c;
+}
+
+
+.card-button {
+  position: relative;
+  background: linear-gradient(-50deg, #2a284c, #6059a6);
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: left;
+  border: inset;
+  border-color: #6059a6;
+  align-items: center;
+  transition: 0.5s;
+  overflow: hidden;
+  box-shadow: #6059a6 0px 10px 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
+  text-decoration: none;
+  
+}
+
+.card-button:hover{
+  width: 210px;
+  transition-delay: 0.5s;
+}
+
+.card-button::before{
+  content: '';
+  position: absolute;
+  right: 25px;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+.card-button:hover:before{
+  transform: rotate(45deg) translate(50px, -50px);
+}
+
+.card-button::after{
+  content: '';
+  position: absolute;
+  left: -50px;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg) translate(-50px, 50px);
+  transition: 0.5s;
+}
+
+.card-button:hover::after{
+  transform: rotate(45deg) translate(50px, -50px);
+  transition-delay: 1s;
+}
+
+.card-button span{
+  visibility: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transition: 0.5s;
+  transform: translateX(-30px);
+}
+
+.card-button:hover span{
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.75s;
+  transform: translateX(50px);
+  color: #fff;
+}
+

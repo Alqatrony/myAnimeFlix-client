@@ -1,0 +1,13 @@
+.x-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  height: 45px;
+  width: 45px;
+}
+
+.x-icon:hover {
+  height: 50px;
+  width: 50px;
+}
