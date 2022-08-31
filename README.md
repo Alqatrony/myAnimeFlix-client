@@ -1,5 +1,6 @@
 
 # myAnimeFlix-client
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cbabf8ff-b3b2-49a4-a1af-97786a63e1d5/deploy-status)](https://app.netlify.com/sites/myanimeflix/deploys)
 
 After i created my [anime_api](https://github.com/Alqatrony/anime_api) database, in this project i built the client-side using React.
 It's a Single-page application that fetches data from the anime API (i.e., [anime_api/documentation](https://myanimed-b.herokuapp.com/documentation.html)).
