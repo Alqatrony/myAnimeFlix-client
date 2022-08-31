@@ -40,5 +40,5 @@ The app shows you important information about each anime when you click on it.
 MERN Stack (MongoDB, ExpressJS, ReactJS, NodeJS), Parcel, Axios, React-Bootstrap, React Router DOM, Redux
 
 
-## Demo
+## [Demo](https://myanimeflix.netlify.app)
 ![Demo](src/img/myAnimeFlix.gif)
