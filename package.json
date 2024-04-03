@@ -1,0 +1,39 @@
+{
+  "name": "myanimeflix-client",
+  "version": "1.0.0",
+  "description": "",
+  "defuld": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alqatrony/myAnimeFlix-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alqatrony/myAnimeFlix-client/issues"
+  },
+  "homepage": "https://github.com/Alqatrony/myAnimeFlix-client#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "parcel": "^2.0.0-rc.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9"
+  },
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.0.0-rc.0",
+    "process": "^0.11.10"
+  }
+}

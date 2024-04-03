@@ -1,0 +1,22 @@
+$background-color: linear-gradient(to bottom, #3d3680, #47438e, #52509c, #5c5dab, #676bb9, #6569b3, #6467ae, #6265a8, #53548e, #444374, #35335c, #262445);
+$text-color: #fff;
+$color: #1a1a24;
+
+.my-animeflix {
+  color: $color;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+div.container-fluid,
+div.main-view.container {
+  color: $text-color;
+  min-height: 100vh;
+  padding: 0;
+  background-image: url("/src/img/background.png"), $background-color;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
