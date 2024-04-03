@@ -48,7 +48,7 @@ export function RegisterView() {
     if (isReq) {
       /* Send request to the server for registration */
       axios
-        .post("https://myanimed-b.herokuapp.com/users", {
+        .post("https://anime-api-6mg7.onrender.com/users", {
           Username: username,
           Password: password,
           Email: email,

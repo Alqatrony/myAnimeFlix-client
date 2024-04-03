@@ -38,7 +38,7 @@ class MainView extends React.Component {
   // Set Animes state in the store
   getAnimes(token) {
     axios
-      .get("https://myanimed-b.herokuapp.com/animes", {
+      .get("https://anime-api-6mg7.onrender.com/animes", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -55,7 +55,7 @@ class MainView extends React.Component {
     const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
     axios
-      .get(`https://myanimed-b.herokuapp.com/users/${user}`, {
+      .get(`https://anime-api-6mg7.onrender.com/users/${user}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

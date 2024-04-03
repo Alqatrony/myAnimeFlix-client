@@ -21,7 +21,7 @@ export function AnimeCard(props) {
     const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
     axios
-      .get(`https://myanimed-b.herokuapp.com/users/${user}`, {
+      .get(`https://anime-api-6mg7.onrender.com/users/${user}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -42,7 +42,7 @@ export function AnimeCard(props) {
     const token = localStorage.getItem("token");
     axios
       .post(
-        `https://myanimed-b.herokuapp.com/users/${user}/animes/${id}`,
+        `https://anime-api-6mg7.onrender.com/users/${user}/animes/${id}`,
         null,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -61,7 +61,7 @@ export function AnimeCard(props) {
     const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
     axios
-      .delete(`https://myanimed-b.herokuapp.com/users/${user}/animes/${id}`, {
+      .delete(`https://anime-api-6mg7.onrender.com/users/${user}/animes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {

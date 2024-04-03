@@ -31,7 +31,7 @@ export function ProfileView(props) {
   // set user
   const getUser = () => {
     axios
-      .get(`https://myanimed-b.herokuapp.com/users/${currentUser}`, {
+      .get(`https://anime-api-6mg7.onrender.com/users/${currentUser}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -49,7 +49,7 @@ export function ProfileView(props) {
     const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
     axios
-      .delete(`https://myanimed-b.herokuapp.com/users/${user}/animes/${id}`, {
+      .delete(`https://anime-api-6mg7.onrender.com/users/${user}/animes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
@@ -95,7 +95,7 @@ export function ProfileView(props) {
       /* Send request to the server for registration */
       axios
         .put(
-          `https://myanimed-b.herokuapp.com/users/${currentUser}`,
+          `https://anime-api-6mg7.onrender.com/users/${currentUser}`,
           {
             Username: username,
             Password: password,
@@ -120,7 +120,7 @@ export function ProfileView(props) {
   };
 
   const deleteUser = () => {
-    axios.delete(`https://myanimed-b.herokuapp.com/users/${currentUser}`, {
+    axios.delete(`https://anime-api-6mg7.onrender.com/users/${currentUser}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     alert("Profile was successfully deleted.");

@@ -14,7 +14,7 @@ export function LoginView(props) {
     e.preventDefault();
     /* Send a request to the server for authentication */
     axios
-      .post("https://myanimed-b.herokuapp.com/login", {
+      .post("https://anime-api-6mg7.onrender.com/login", {
         Username: username,
         Password: password,
       })

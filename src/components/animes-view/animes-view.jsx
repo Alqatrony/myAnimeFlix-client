@@ -23,7 +23,7 @@ export class AnimeView extends React.Component {
 
     axios
       .put(
-        `https://myanimed-b.herokuapp.com/users/${username}/animes/${anime._id}`,
+        `https://anime-api-6mg7.onrender.com/users/${username}/animes/${anime._id}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

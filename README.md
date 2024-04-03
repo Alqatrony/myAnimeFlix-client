@@ -2,7 +2,7 @@
 # myAnimeFlix-client
 
 After i created my [anime_api](https://github.com/Alqatrony/anime_api) database, in this project i built the client-side using React.
-It's a Single-page application that fetches data from the anime API (i.e., [anime_api/documentation](https://myanimed-b.herokuapp.com/documentation.html)).
+It's a Single-page application that fetches data from the anime API (i.e., [anime_api/documentation](https://anime-api-6mg7.onrender.com/documentation.html)).
 You can register as a user and navigate through the app. You can add animes to your favorit list and remove them as well and search for an anime and update your data.
 The app shows you important information about each anime when you click on it.
 
