@@ -109,7 +109,7 @@ export function AnimeCard(props) {
         >
           <img src={iconHandle()} className="fav-icon" />
         </a>
-        <Card.Text>{anime.Genre.Name}</Card.Text>
+        <Card.Text>{anime.Genre.Name.join(", ")}</Card.Text>
         <a className="card-button" href={`/animes/${anime._id}`}>
             <span>Anime Details</span>
         </a>
