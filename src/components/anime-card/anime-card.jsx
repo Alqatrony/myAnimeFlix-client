@@ -1,9 +1,8 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import Card from "react-bootstrap/Card";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 import { connect } from "react-redux";
 
 //favorite images
@@ -61,9 +60,12 @@ export function AnimeCard(props) {
     const user = localStorage.getItem("user");
     const token = localStorage.getItem("token");
     axios
-      .delete(`https://anime-api-6mg7.onrender.com/users/${user}/animes/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .delete(
+        `https://anime-api-6mg7.onrender.com/users/${user}/animes/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then(() => {
         //refresh state
         getFavAnimes();
@@ -95,7 +97,7 @@ export function AnimeCard(props) {
   };
 
   return (
-    <Card className="anime-card" style={{ width: '18rem', margin: '10px' }}>
+    <Card className="anime-card" style={{ width: "18rem", margin: "10px" }}>
       <Link to={`/animes/${anime._id}`}>
         <Card.Img crossOrigin="anonymous" variant="top" src={anime.ImagePath} />
       </Link>
@@ -109,9 +111,13 @@ export function AnimeCard(props) {
         >
           <img src={iconHandle()} className="fav-icon" />
         </a>
-        <Card.Text>{anime.Genre.Name.join(", ")}</Card.Text>
+        <Card.Text>
+          {Array.isArray(anime?.Genre?.Name)
+            ? anime.Genre.Name.join(", ")
+            : anime?.Genre?.Name || "N/A"}
+        </Card.Text>
         <a className="card-button" href={`/animes/${anime._id}`}>
-            <span>Anime Details</span>
+          <span>Anime Details</span>
         </a>
       </Card.Body>
     </Card>
@@ -132,7 +138,10 @@ AnimeCard.propTypes = {
     _id: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
+      Name: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.string
+      ]).isRequired,
       Description: PropTypes.string.isRequired,
     }).isRequired,
     MangaArtist: PropTypes.shape({

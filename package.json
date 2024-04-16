@@ -4,6 +4,9 @@
   "description": "",
   "defuld": "src/index.html",
   "scripts": {
+    "cleanup": "rmdir /q /s .parcel-cache dist",
+    "start": "npm run cleanup && parcel src/index.html",
+    "build": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +21,7 @@
   "homepage": "https://github.com/Alqatrony/myAnimeFlix-client#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "parcel": "^2.0.0-rc.0",
+    "parcel": "^2.12.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.5.0",
@@ -33,7 +36,6 @@
     "@parcel/transformer-image": "^2.0.0-rc.0",
     "@parcel/transformer-sass": "^2.0.0-rc.0",
     "buffer": "^6.0.3",
-    "parcel": "^2.0.0-rc.0",
     "process": "^0.11.10"
   }
 }

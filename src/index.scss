@@ -15,7 +15,7 @@ div.main-view.container {
   color: $text-color;
   min-height: 100vh;
   padding: 0;
-  background-image: url("/src/img/background.png"), $background-color;
+  background-image: url("./img/background.png"), $background-color;
   background-size: 100% 100%;
   background-attachment: fixed;
 }

@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 
@@ -27,14 +27,24 @@ function AnimesList(props) {
 
   return (
     <Row className="anime-row">
-      <Col lg={12} style={{ margin: '1em' }} className="mt-3 mb-3">
+      <Col lg={12} style={{ margin: "1em" }} className="mt-3 mb-3">
         <VisibilityFilterInput visibilityFilter={visibilityFilter} />
       </Col>
-      {filteredAnimes.map((m) => (
-        <Col lg={3} md={5} sm={12} key={m._id} style={{width: '332px'}} className="anime-col">
-          <AnimeCard anime={m} />
-        </Col>
-      ))}
+      {filteredAnimes.map((m) => {
+        console.log(m); // This will log each anime object being passed to AnimeCard
+        return (
+          <Col
+            lg={3}
+            md={5}
+            sm={12}
+            key={m._id}
+            style={{ width: "332px" }}
+            className="anime-col"
+          >
+            <AnimeCard anime={m} />
+          </Col>
+        );
+      })}
     </Row>
   );
 }
