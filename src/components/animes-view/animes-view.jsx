@@ -102,7 +102,10 @@ AnimeView.propTypes = {
   anime: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
+      Name: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.string
+      ]).isRequired,
       Description: PropTypes.string.isRequired,
     }).isRequired,
     MangaArtist: PropTypes.shape({
