@@ -8,11 +8,11 @@ import "./animes-view.scss";
 
 export class AnimeView extends React.Component {
   addAnime(anime) {
-    let username = localStorage.getItem('user');
-    let token = localStorage.getItem('token');
+    let username = localStorage.getItem("user");
+    let token = localStorage.getItem("token");
     const notify = () =>
-      toast.success('Anime has been added!', {
-        position: 'top-center',
+      toast.success("Anime has been added!", {
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -52,7 +52,9 @@ export class AnimeView extends React.Component {
                   <span className="label">Genre: </span>
                   <a className="link" href={`/genres/${anime.Genre.Name}`}>
                     <span className="link" variant="link">
-                      {anime.Genre.Name}
+                      {Array.isArray(anime?.Genre?.Name)
+                        ? anime.Genre.Name.join(", ")
+                        : anime?.Genre?.Name || "N/A"}
                     </span>
                   </a>
                 </div>
@@ -104,7 +106,7 @@ AnimeView.propTypes = {
     Genre: PropTypes.shape({
       Name: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),
-        PropTypes.string
+        PropTypes.string,
       ]).isRequired,
       Description: PropTypes.string.isRequired,
     }).isRequired,
