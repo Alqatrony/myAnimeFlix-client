@@ -1,11 +1,15 @@
-import { React } from "react";
-import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
-import { AnimeCard } from "../anime-card/anime-card";
-import { Col, Row, Card } from "react-bootstrap";
+// genre-view.jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+import { AnimeCard } from '../anime-card/anime-card';
+import { Col, Row, Card, Button } from 'react-bootstrap';
 
 function GenreView(props) {
   const { onBackClick, genre, animes } = props;
+
+  if (!genre) {
+    return <div>Loading genre information...</div>;
+  }
 
   return (
     <>

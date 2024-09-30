@@ -50,13 +50,28 @@ export class AnimeView extends React.Component {
               <Card.Body>
                 <div className="anime-genre">
                   <span className="label">Genre: </span>
-                  <a className="link" href={`/genres/${anime.Genre.Name}`}>
-                    <span className="link" variant="link">
-                      {Array.isArray(anime?.Genre?.Name)
-                        ? anime.Genre.Name.join(", ")
-                        : anime?.Genre?.Name || "N/A"}
-                    </span>
-                  </a>
+                  {Array.isArray(anime?.Genre?.Name) ? (
+                    anime.Genre.Name.map((genre, index) => (
+                      <span key={index}>
+                        <Link
+                          className="link"
+                          to={`/genre/${encodeURIComponent(genre)}`}
+                        >
+                          {genre}
+                        </Link>
+                        {index < anime.Genre.Name.length - 1 ? ", " : ""}
+                      </span>
+                    ))
+                  ) : (
+                    <Link
+                      className="link"
+                      to={`/genre/${encodeURIComponent(
+                        anime?.Genre?.Name || "N/A"
+                      )}`}
+                    >
+                      {anime?.Genre?.Name || "N/A"}
+                    </Link>
+                  )}
                 </div>
                 <div className="anime-mangaartist">
                   <span className="label">MangaArtist: </span>

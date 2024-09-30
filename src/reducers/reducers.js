@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import {
   SET_FILTER,
   SET_ANIMES,
+  SET_GENRES,
   SET_USER,
   SET_FAVORITES,
 } from "../actions/actions";
@@ -19,6 +20,15 @@ function visibilityFilter(state = "", action) {
 function animes(state = [], action) {
   switch (action.type) {
     case SET_ANIMES:
+      return action.value;
+    default:
+      return state;
+  }
+}
+
+function genres(state = [], action) {
+  switch (action.type) {
+    case SET_GENRES:
       return action.value;
     default:
       return state;
@@ -46,6 +56,7 @@ function favorites(state = [], action) {
 const animesApp = combineReducers({
   visibilityFilter,
   animes,
+  genres,
   user,
   favorites,
 });

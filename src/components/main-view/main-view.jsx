@@ -3,7 +3,12 @@ import axios from "axios";
 import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
-import { setAnimes, setUser, setFavorites } from "../../actions/actions.js";
+import {
+  setAnimes,
+  setGenres,
+  setUser,
+  setFavorites,
+} from "../../actions/actions.js";
 import AnimesList from "../animes-list/animes-list";
 
 import { LoginView } from "../login-view/login-view";
@@ -31,6 +36,7 @@ class MainView extends React.Component {
     if (accessToken !== null) {
       this.props.setUser(localStorage.getItem("user"));
       this.getAnimes(accessToken);
+      this.getGenres(accessToken);
       this.getFavAnimes();
     }
   }
@@ -44,6 +50,21 @@ class MainView extends React.Component {
       .then((response) => {
         // Assign the result to the setAnimes state
         this.props.setAnimes(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // set Genres state in the store
+  getGenres(token) {
+    axios
+      .get("https://anime-api-6mg7.onrender.com/genre", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        // Assign the result to the setGenres state
+        this.props.setGenres(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -198,27 +219,45 @@ class MainView extends React.Component {
               }}
             />
             <Route
-              path="/genres/:name"
+              exact
+              path="/genre/:name"
               render={({ match, history }) => {
-                if (!user)
-                  return (
-                    <Col>
-                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                    </Col>
-                  );
-                // Before the animes have been loaded
-                if (animes.length === 0)
-                  return <div className="main-view"></div>;
+                const genreName = decodeURIComponent(match.params.name);
+
+                const { animes, genres } = this.props;
+
+                // Check if genres data is loaded
+                if (!genres || genres.length === 0) {
+                  return <div>Loading genres...</div>;
+                }
+
+                // Find the genre object from genres
+                const genre = genres.find(
+                  (g) => g.Name.toLowerCase() === genreName.toLowerCase()
+                );
+
+                if (!genre) {
+                  return <div>Genre not found.</div>;
+                }
+
+                // Filter animes that have the genre
+                const filteredAnimes = animes.filter((m) => {
+                  const genreNames = m.Genre.Name;
+                  if (Array.isArray(genreNames)) {
+                    return genreNames.some(
+                      (name) => name.toLowerCase() === genreName.toLowerCase()
+                    );
+                  } else if (typeof genreNames === "string") {
+                    return genreNames.toLowerCase() === genreName.toLowerCase();
+                  }
+                  return false;
+                });
+
                 return (
                   <Col md={8}>
                     <GenreView
-                      genre={
-                        animes.find((m) => m.Genre.Name === match.params.name)
-                          .Genre
-                      }
-                      animes={animes.filter(
-                        (m) => m.Genre.Name === match.params.name
-                      )}
+                      genre={genre}
+                      animes={filteredAnimes}
                       onBackClick={() => history.goBack()}
                     />
                   </Col>
@@ -234,20 +273,29 @@ class MainView extends React.Component {
 
 // state from store and pass it as a prop to the component
 let mapStateToProps = (state) => {
-  return { animes: state.animes, user: state.user, favorites: state.favorites };
+  console.log("Genres from Redux store:", state.genres);
+  return {
+    animes: state.animes,
+    genres: state.genres,
+    user: state.user,
+    favorites: state.favorites,
+  };
 };
 
 // connect() to connect component to store
 export default connect(mapStateToProps, {
   setAnimes,
+  setGenres,
   setUser,
   setFavorites,
 })(MainView);
 
 MainView.propTypes = {
   animes: PropTypes.array.isRequired,
+  genres: PropTypes.array.isRequired,
   user: PropTypes.string.isRequired,
   setUser: PropTypes.func.isRequired,
   setAnimes: PropTypes.func.isRequired,
+  setGenres: PropTypes.func.isRequired,
   setFavorites: PropTypes.func.isRequired,
 };
