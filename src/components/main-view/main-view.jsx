@@ -169,7 +169,7 @@ class MainView extends React.Component {
               }}
             />
             <Route
-              path="/animes/:AnimeId"
+              path="/animes/:id"
               render={({ match, history }) => {
                 if (!user)
                   return (
@@ -183,7 +183,7 @@ class MainView extends React.Component {
                 return (
                   <Col md={8}>
                     <AnimeView
-                      anime={animes.find((m) => m.id === match.params.AnimeId)}
+                      anime={animes.find((m) => m.id === match.params.id)}
                       onBackClick={() => history.goBack()}
                     />
                   </Col>
