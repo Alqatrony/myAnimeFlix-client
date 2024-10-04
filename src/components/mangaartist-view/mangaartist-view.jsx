@@ -22,7 +22,7 @@ function MangaArtistView(props) {
           <h5 className="label">Animes</h5>
           <Row className="justify-content-md-center">
             {animes.map((m) => (
-              <Col xs={12} md={6} lg={4} key={m._id}>
+              <Col xs={12} md={6} lg={4} key={m.id}>
                 <AnimeCard anime={m} />
               </Col>
             ))}

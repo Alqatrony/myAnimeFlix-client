@@ -22,7 +22,7 @@ export class FavoriteAnimes extends Component {
           <Row className="justify-content-md-center">
             {favorites.map((m) => {
               return (
-                <Col key={m._id} xs={12} md={6} lg={4} className="fav-animes">
+                <Col key={m.id} xs={12} md={6} lg={4} className="fav-animes">
                   <FavAnimeCard
                     deleteAnime={deleteAnime}
                     token={token}

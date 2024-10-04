@@ -76,8 +76,8 @@ export function AnimeCard(props) {
   //when clicked the anime is either added/removed from the user via the API
   const favAnimeClick = (e) => {
     e.preventDefault();
-    let favAnimesIds = favoriteAnimes.map((m) => m._id);
-    let animeId = anime._id;
+    let favAnimesIds = favoriteAnimes.map((m) => m.id);
+    let animeId = anime.id;
     if (favAnimesIds.includes(animeId)) {
       deleteAnime(animeId);
     } else {
@@ -87,8 +87,8 @@ export function AnimeCard(props) {
 
   //icon handler
   const iconHandle = () => {
-    let favAnimesIds = favoriteAnimes.map((m) => m._id);
-    let animeId = anime._id;
+    let favAnimesIds = favoriteAnimes.map((m) => m.id);
+    let animeId = anime.id;
     if (favAnimesIds.includes(animeId)) {
       return heartFull;
     } else {
@@ -98,7 +98,7 @@ export function AnimeCard(props) {
 
   return (
     <Card className="anime-card" style={{ width: "18rem", margin: "10px" }}>
-      <Link to={`/animes/${anime._id}`}>
+      <Link to={`/animes/${anime.id}`}>
         <Card.Img crossOrigin="anonymous" variant="top" src={anime.ImagePath} />
       </Link>
       <Card.Body>
@@ -116,7 +116,7 @@ export function AnimeCard(props) {
             ? anime.Genre.Name.join(", ")
             : anime?.Genre?.Name || "N/A"}
         </Card.Text>
-        <a className="card-button" href={`/animes/${anime._id}`}>
+        <a className="card-button" href={`/animes/${anime.id}`}>
           <span>Anime Details</span>
         </a>
       </Card.Body>
@@ -135,7 +135,7 @@ export default connect(mapStateToProps)(AnimeCard);
 
 AnimeCard.propTypes = {
   anime: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
       Name: PropTypes.oneOfType([

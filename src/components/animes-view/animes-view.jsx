@@ -1,3 +1,4 @@
+// animes-view.jsx
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
@@ -23,7 +24,7 @@ export class AnimeView extends React.Component {
 
     axios
       .put(
-        `https://anime-api-6mg7.onrender.com/users/${username}/animes/${anime._id}`,
+        `https://anime-api-6mg7.onrender.com/users/${username}/animes/${anime.id}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
