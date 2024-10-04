@@ -1,6 +1,6 @@
 // animes-list.jsx
 import PropTypes from "prop-types";
-
+import { Col, Row } from 'react-bootstrap';
 import { connect } from "react-redux";
 
 import VisibilityFilterInput from "../visibility-filter-input/visibility-filter-input";
