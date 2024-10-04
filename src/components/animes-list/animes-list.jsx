@@ -1,5 +1,4 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+// animes-list.jsx
 import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
@@ -37,7 +36,7 @@ function AnimesList(props) {
             lg={3}
             md={5}
             sm={12}
-            key={m._id}
+            key={m.id}
             style={{ width: "332px" }}
             className="anime-col"
           >

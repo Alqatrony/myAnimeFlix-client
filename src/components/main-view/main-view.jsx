@@ -1,3 +1,4 @@
+// main-view.jsx
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -182,7 +183,7 @@ class MainView extends React.Component {
                 return (
                   <Col md={8}>
                     <AnimeView
-                      anime={animes.find((m) => m._id === match.params.AnimeId)}
+                      anime={animes.find((m) => m.id === match.params.AnimeId)}
                       onBackClick={() => history.goBack()}
                     />
                   </Col>

@@ -25,7 +25,7 @@ function GenreView(props) {
           <h5 className="mangaartist-animes">Animes</h5>
           <Row>
             {animes.map((m) => (
-              <Col xs={12} md={6} lg={4} key={m._id}>
+              <Col xs={12} md={6} lg={4} key={m.id}>
                 <AnimeCard anime={m} />
               </Col>
             ))}

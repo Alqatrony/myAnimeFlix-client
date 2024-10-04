@@ -54,7 +54,7 @@ export function ProfileView(props) {
       })
       .then(() => {
         //refresh state
-        setFavorites(favorites.filter((anime) => anime._id != id));
+        setFavorites(favorites.filter((anime) => anime.id != id));
         console.log(favorites);
       })
       .catch((error) => console.error(error));

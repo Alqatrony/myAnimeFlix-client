@@ -14,12 +14,12 @@ export function FavAnimeCard(props) {
 
   return (
     <Card>
-      <Link to={`/animes/${anime._id}`}>
+      <Link to={`/animes/${anime.id}`}>
         <Card.Img crossOrigin="anonymous" variant="top" src={anime.ImagePath} />
       </Link>
       <Card.Body>
         <Link
-          to={`/animes/${anime._id}`}
+          to={`/animes/${anime.id}`}
           style={{ textDecoration: "none", color: "black" }}
         >
           <Card.Title className="card-title">{anime.Title}</Card.Title>
@@ -27,7 +27,7 @@ export function FavAnimeCard(props) {
         <a
           href="#"
           onClick={() => {
-            deleteAnime(anime._id);
+            deleteAnime(anime.id);
           }}
         >
           <img src={xMark} className="x-icon" />
@@ -39,7 +39,7 @@ export function FavAnimeCard(props) {
 
 FavAnimeCard.propTypes = {
   anime: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
